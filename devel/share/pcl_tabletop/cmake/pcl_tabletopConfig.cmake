@@ -92,7 +92,7 @@ if(NOT "/home/kkd236/kk_workspace/src/pcl_tabletop/include" STREQUAL "")
     elseif(IS_DIRECTORY /home/kkd236/kk_workspace/src/pcl_tabletop/${idir})
       set(include /home/kkd236/kk_workspace/src/pcl_tabletop/${idir})
     else()
-      message(FATAL_ERROR "Project 'pcl_tabletop' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/kkd236/kk_workspace/src/pcl_tabletop/${idir}'.  Ask the maintainer 'kkd236 <kkd236@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'pcl_tabletop' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/kkd236/kk_workspace/src/pcl_tabletop/${idir}'.  Ask the maintainer 'kkd236 <kkd236@bham.ac.uk>' to fix it.")
     endif()
     _list_append_unique(pcl_tabletop_INCLUDE_DIRS ${include})
   endforeach()
@@ -108,7 +108,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/kkd236/kk_workspace/devel/lib;/home/kkd236/kk_workspace/devel/lib;/opt/strands/strands_catkin_ws/devel/lib;/opt/ros/groovy/lib)
+    foreach(path /home/kkd236/kk_workspace/devel/lib;/opt/strands/strands_catkin_ws/devel/lib;/opt/ros/groovy/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

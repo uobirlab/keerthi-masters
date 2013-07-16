@@ -42,7 +42,7 @@ import platform
 import sys
 
 # environment at generation time
-CMAKE_PREFIX_PATH = '/home/kkd236/kk_workspace/devel;/opt/strands/strands_catkin_ws/devel;/opt/ros/groovy'.split(';')
+CMAKE_PREFIX_PATH = '/opt/strands/strands_catkin_ws/devel;/opt/ros/groovy'.split(';')
 setup_dir = '/home/kkd236/kk_workspace/devel'
 if setup_dir not in CMAKE_PREFIX_PATH:
     CMAKE_PREFIX_PATH.insert(0, setup_dir)
