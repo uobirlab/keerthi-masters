@@ -1,0 +1,6 @@
+Name: pcl_tabletop
+Description: Description of pcl_tabletop
+Version: 0.0.0
+Cflags: -I/home/kkd236/kk_workspace/install/include
+Libs: -L/home/kkd236/kk_workspace/install/lib 
+Requires: 

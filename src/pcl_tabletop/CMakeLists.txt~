@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(pcl_tabletop)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
+find_package(catkin REQUIRED COMPONENTS pcl pcl_ros roscpp sensor_msgs)
+
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+add_executable (pcl_node src/pcl_node.cpp)
+target_link_libraries (pcl_node ${PCL_LIBRARIES})
+target_link_libraries(pcl_node ${catkin_LIBRARIES})
+target_link_libraries(pcl_node ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so )
+
+#add_executable (pcl_node1 src/pcl_node1.cpp)
+#target_link_libraries (pcl_node1 ${PCL_LIBRARIES})
+#target_link_libraries(pcl_node1 ${catkin_LIBRARIES})
+
+catkin_package(
+   INCLUDE_DIRS include
+#  LIBRARIES pcl_tutorials
+#  CATKIN_DEPENDS pcl pcl_ros roscpp sensor_msgs
+#  DEPENDS system_lib
+)
+
+include_directories(include
+  ${catkin_INCLUDE_DIRS}
+)
+
+install(TARGETS pcl_node
+#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

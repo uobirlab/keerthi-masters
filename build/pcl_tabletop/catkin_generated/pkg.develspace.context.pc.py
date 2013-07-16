@@ -1,0 +1,7 @@
+CATKIN_PACKAGE_PREFIX=""
+PROJECT_ABSOLUTE_INCLUDE_DIRS="/home/kkd236/kk_workspace/src/pcl_tabletop/include"
+PROJECT_CATKIN_DEPENDS=""
+PKG_CONFIG_LIBRARIES_WITH_PREFIX=""
+PROJECT_NAME="pcl_tabletop"
+PROJECT_SPACE_DIR="/home/kkd236/kk_workspace/devel"
+PROJECT_VERSION="0.0.0"
