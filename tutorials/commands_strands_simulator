@@ -1,0 +1,4 @@
+roscore
+morse run strands_sim default-with-kinect.py
+roslaunch strands_morse_2dnav nav.launch
+rosrun  strands_executive tum_kitchen_nav_goals.py

@@ -1,0 +1,119 @@
+rospack:
+to get the path of a package.
+
+# rospack find [package_name]
+$ rospack find roscpp
+
+roscd:
+to change the directory to particular package.
+
+# roscd [locationname[/subdir]]
+$ roscd roscpp
+
+rosls:
+To list the files present in a package folder.
+
+# rosls [locationname[/subdir]]
+$ rosls roscpp_tutorials
+
+
+rospack = ros + pack(age)
+roscd = ros + cd
+rosls = ros + ls 
+
+
+ROS PACKAGE:
+This file defines properties about the package such as the package name, version numbers, authors, maintainers, and dependencies on other catkin packages.
+
+As an example, here is package manifest for a fictional package called foo_core. 
+<package>
+  <name>foo_core</name>
+  <version>1.2.4</version>
+  <description>
+  This package provides foo capability.
+  </description>
+  <maintainer email="ivana@willowgaurrage.com">Ivana Bildbotz</maintainer>
+  <license>BSD</license>
+</package>
+
+
+A more realistic example that specifies build, runtime, and test dependencies could look as follows.
+
+<package>
+<!-- this is a comment  -->
+  <name>foo_core</name>
+  <version>1.2.4</version>
+  <description>
+    This package provides foo capability.
+  </description>
+  <maintainer email="ivana@willowgarage.com">Ivana Bildbotz</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/foo_core</url>
+  <author>Ivana Bildbotz</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <test_depend>python-mock</test_depend>
+</package>
+
+
+The simplest possible package might look like this:
+
+    my_package/
+      CMakeLists.txt
+      package.xml
+
+
+To create a catkin package inside the catkin workspace:
+# This is an example, do not try to run this
+# catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
+
+To build a package:
+
+source your environment setup file 
+$ source /opt/ros/groovy/setup.bash
+
+Using roslaunch:
+
+$ roslaunch [package] [filename.launch]
+<launch>
+
+  <group ns="turtlesim1">
+    <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+  </group>
+
+  <group ns="turtlesim2">
+    <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+  </group>
+
+  <node pkg="turtlesim" name="mimic" type="mimic">
+    <remap from="input" to="turtlesim1/turtle1"/>
+    <remap from="output" to="turtlesim2/turtle1"/>
+  </node>
+
+</launch>
+
+
+
+rospack = ros+pack(age) : provides information related to ROS packages
+rosstack = ros+stack : provides information related to ROS stacks
+
+roscd = ros+cd : changes directory to a ROS package or stack
+
+rosls = ros+ls : lists files in a ROS package
+
+roscp = ros+cp : copies files from/to a ROS package
+rosmsg = ros+msg : provides information related to ROS message definitions
+rossrv = ros+srv : provides information related to ROS service definitions
+rosmake = ros+make : makes (compiles) a ROS package 
+
